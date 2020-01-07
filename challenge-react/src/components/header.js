@@ -2,53 +2,133 @@ import React, {Component} from 'react';
 import '../assets/css/bootstrap.min.css';
 import '../assets/css/main.css';
 import Search from './search';
+import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
 class Header extends Component{
+    handleRouterNav = categoryName => {
+        const category = categoryName;
+        this.props.history.replace("/news/" + category);
+    };
+    // postSignout = () => {
+    //     localStorage.removeItem("is_login");
+    //     this.props.history.push("/login");
+    //   };
     render(){
-        return (
-            <header>
-                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
-                <div className="container-fluid">
-                    <div className="row align-items-center">
-                        <div className="col-md-2 header-kiri">
-                            <a href="index.html" className="header-logo">
-                                <img src={require('../assets/img/logo192.png')} alt=""/>
-                            </a>
-                            <div href="index.html" className="header-logo-text">
-                                KabarKabar
+        const is_login = JSON.parse(localStorage.getItem("is_login"));
+        if (is_login!==true){
+            return (
+                <header>
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+                    <div className="container-fluid">
+                        <div className="row align-items-center">
+                            <div className="col-md-2 header-kiri">
+                                <div className="header-logo">
+                                    <Link to="/news">
+                                        <img src={require('../assets/img/logo192.png')} alt=""/>
+                                    </Link>
+                                </div>
+                                <div href="index.html" className="header-logo-text">
+                                    KabarKabar
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-5">
-                            <div className="header-navbar">
-                                <ul className="header-navbar-list list-unstyled">
-                                    <li><a href="index.html">Sepakbola</a></li>
-                                    <li><a href="index.html">Ekonomi</a></li>
-                                    <li><a href="index.html">Politik</a></li>
-                                    <li><a href="index.html">Hiburan</a></li>
-                                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="index.html">Hiburan <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                        <li><a href="index.html">Page 1-1</a></li>
-                                        <li><a href="index.html">Page 1-2</a></li>
-                                        <li><a href="index.html">Page 1-3</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <div className="col-md-5">
+                                <div className="header-navbar">
+                                    <ul className="header-navbar-list list-unstyled">
+                                        {/* <li onClick={
+                                            this.handleRouterNav("sepakbola")
+                                        }><Link to={`/news/sepakbola`}>Sepakbola</Link></li> */}
+                                        <li><Link to={`/news/sepakbola`}>Sepakbola</Link></li>
+                                        <li><Link to={`/news/ekonomi`}>Ekonomi</Link></li>
+                                        <li><Link to={`/news/politik`}>Politik</Link></li>
+                                        <li><Link to={`/news/hiburan`}>Hiburan</Link></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-3">
-                            <Search/>
-                        </div>
-                        <div className="col-md-2">
-                            <div>
-                                <ul className="header-navbar-list list-unstyled">
-                                    <li><a href="index.html">Masuk</a></li>
-                                    <li><a href="index.html">Daftar</a></li>
-                                </ul>
+                            <div className="col-md-3">
+                                {/* <Search {...this.props} /> */}
+                                {/* <Search/> */}
+                                <form className="form-inline active-cyan-4">
+                                    <input className="form-control form-control-sm w-75" type="text" placeholder="Search"
+                                        aria-label="Search" onChange={(e) => this.props.searchNews(e.target.value)}/>
+                                        <button type="submit" class="searchButton">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                </form>
+                            </div>
+                            <div className="col-md-2">
+                                <div>
+                                    <ul className="header-navbar-list list-unstyled">
+                                        <li>
+                                            <Link to="/login">
+                                                Masuk
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
-        );
+                </header>
+            );
+        }
+        else{
+            return (
+                <header>
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+                    <div className="container-fluid">
+                        <div className="row align-items-center">
+                            <div className="col-md-2 header-kiri">
+                                <div className="header-logo">
+                                    <Link to="/news">
+                                        <img src={require('../assets/img/logo192.png')} alt=""/>
+                                    </Link>
+                                </div>
+                                <div href="index.html" className="header-logo-text">
+                                    KabarKabar
+                                </div>
+                            </div>
+                            <div className="col-md-5">
+                                <div className="header-navbar">
+                                    <ul className="header-navbar-list list-unstyled">
+                                        {/* <li onClick={
+                                            this.handleRouterNav("sepakbola")
+                                        }><Link to={`/news/sepakbola`}>Sepakbola</Link></li> */}
+                                        <li><Link to={`/news/sepakbola`}>Sepakbola</Link></li>
+                                        <li><Link to={`/news/ekonomi`}>Ekonomi</Link></li>
+                                        <li><Link to={`/news/politik`}>Politik</Link></li>
+                                        <li><Link to={`/news/hiburan`}>Hiburan</Link></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="col-md-3">
+                                {/* <Search {...this.props} fungsiSearch/> */}
+                                <form className="form-inline active-cyan-4">
+                                    <input className="form-control form-control-sm w-75" type="text" placeholder="Search"
+                                        aria-label="Search" onChange={this.props.doSearch}/>
+                                        <button type="submit" class="searchButton">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                </form>
+                            </div>
+                            <div className="col-md-2">
+                                <div>
+                                    <ul className="header-navbar-list list-unstyled">
+                                        <li>
+                                            <Link to="/profile" >Profile</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            );
+        }
+        
     }
 }
+Search.propTypes = {
+    title: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired
+};
 export default Header;

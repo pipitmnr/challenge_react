@@ -1,31 +1,19 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import ListArticle from "../components/list-article"
+// import {
+//     useParams
+//   } from "react-router-dom";
 
-const apiKey = "448feafa267b4bf4babf102fe746d08b"
-const baseUrl = "https://newsapi.org/v2/top-headlines"
-const country = "id"
-const urlHeadline = baseUrl + "?country=" + country + "&apiKey=" + apiKey;
+// const apiKey = "448feafa267b4bf4babf102fe746d08b"
+// const baseUrl = "https://newsapi.org/v2/everything"
+// const q = "academy"
+// const urlHeadline = baseUrl + "?q=" + q + "&apiKey=" + apiKey;
 
 class ListArticleData extends Component{
-    state = {
-        listListArticle: [],
-        isLoading: true ,
-        category: 'sport'
-    };
-    componentDidMount = () => {
-        const self = this;
-        axios
-            .get(urlHeadline)
-            .then(function(response){
-                self.setState({listListArticle: response.data.articles, isLoading: false});
-            })
-            .catch(function(error){
-                self.setState({isLoading: false});
-            });
-    };
     render(){
-        const {listListArticle, isLoading} = this.state;
+        const {listListArticle, isLoading} = this.props;
+        // console.log(listListArticle)
         const topHeadlines = listListArticle.filter(item => {
             if(item.content !== null && item.urlToImage !== null){
                 return item;

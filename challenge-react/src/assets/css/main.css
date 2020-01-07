@@ -14,7 +14,7 @@ header{
     font-family: 'Muli', sans-serif;
     background-color: #f5f4f4;
 }
-.header-kiri a, .header-kiri .header-logo-text{
+.header-kiri .header-logo, .header-kiri .header-logo-text{
     display: inline-block;
 }
 .header-logo{
@@ -35,7 +35,7 @@ header{
 }
 .header-navbar-list li a{
     font-size: 15px;
-    color: black;
+    /* color: black; */
     padding: 0 10px;
     display: block;
     text-decoration: none;
