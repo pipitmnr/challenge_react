@@ -8,20 +8,20 @@ class ListArticle extends Component{
             <div>
                 <div className="list-article">
                     <div className="list-article-img">
-                        <img src={require('../assets/img/news.jpg')} alt=""/>
+                        <a href={this.props.url} target="_blank" rel="noopener noreferrer"><img src={this.props.img} alt=""/></a>
                     </div>
                     <div className="list-article-title">
-                        <h3>
-                            Nikahi Rakyat Jelata, Putri Ayako dari Jepang Lepaskan Gelar Kerajaan
-                        </h3>
+                        <a href={this.props.url} target="_blank" rel="noopener noreferrer"><h3>
+                            {this.props.title}
+                        </h3></a>
                     </div>
                     <div className="list-article-description">
                         <p>
-                            Pernikahan Putri Ayako dan Kei Moriya dilangsungkan lewat upacara tradisional Jepang.
+                            {this.props.description}
                         </p>
                     </div>
                     <div className="list-article-publisher">
-                        Last updated 3 hours ago
+                        {this.props.published}
                     </div>
                     <div className="row action-list">
                         <div className="col-md-4 action">
@@ -40,6 +40,9 @@ class ListArticle extends Component{
                             </a>
                         </div>
                     </div>
+                </div>
+                <div className="list-article-space">
+
                 </div>
             </div>   
         );

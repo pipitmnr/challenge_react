@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import '../assets/css/bootstrap.min.css';
 import '../assets/css/main.css';
 import Header from '../components/header';
-import TopArticle from '../components/top-article';
-import ListArticle from '../components/list-article';
+// import TopArticle from '../components/top-article';
+// import ListArticle from '../components/list-article';
+import ListArticleData from './list-article-data';
+import TopArticleData from './top-article-data';
 
 class Home extends Component{
     render(){
@@ -17,10 +19,10 @@ class Home extends Component{
 
                             </div>
                             <div className="col-md-4">
-                                <TopArticle/>
+                                <TopArticleData/>
                             </div>
                             <div className="col-md-7">
-                                <ListArticle/>
+                                <ListArticleData/>
                             </div>
                         </div>
                     </div>
