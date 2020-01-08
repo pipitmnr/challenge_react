@@ -69,4 +69,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 
-LINK DEPLOY REACT : https://relaxed-panini-c2bad6.netlify.com
+LINK DEPLOY REACT : https://eloquent-hodgkin-593db9.netlify.com/
