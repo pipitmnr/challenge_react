@@ -133,3 +133,6 @@ header{
 .action a{
     color: rgb(34, 33, 33);
 }
+.btn-block a{
+    color: white;
+}

@@ -6,7 +6,7 @@ class TopArticle extends Component{
     render(){
         return (
             <div className="top-article-list">
-                <a href="index.html" className="top-article-list-isi">
+                <a href={this.props.url} className="top-article-list-isi">
                     <span>
                         {"_#"}
                         {this.props.indeks}

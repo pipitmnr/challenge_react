@@ -4,11 +4,8 @@ import '../assets/css/main.css';
 import Search from './search';
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
+
 class Header extends Component{
-    handleRouterNav = categoryName => {
-        const category = categoryName;
-        this.props.history.replace("/news/" + category);
-    };
     // postSignout = () => {
     //     localStorage.removeItem("is_login");
     //     this.props.history.push("/login");
@@ -23,8 +20,8 @@ class Header extends Component{
                         <div className="row align-items-center">
                             <div className="col-md-2 header-kiri">
                                 <div className="header-logo">
-                                    <Link to="/news">
-                                        <img src={require('../assets/img/logo192.png')} alt=""/>
+                                    <Link to="/">
+                                        <img src={require('../assets/img/logo192.png')} alt="" onClick={(e) => this.props.doCategory("academy")}/>
                                     </Link>
                                 </div>
                                 <div href="index.html" className="header-logo-text">
@@ -34,22 +31,17 @@ class Header extends Component{
                             <div className="col-md-5">
                                 <div className="header-navbar">
                                     <ul className="header-navbar-list list-unstyled">
-                                        {/* <li onClick={
-                                            this.handleRouterNav("sepakbola")
-                                        }><Link to={`/news/sepakbola`}>Sepakbola</Link></li> */}
-                                        <li><Link to={`/news/sepakbola`}>Sepakbola</Link></li>
-                                        <li><Link to={`/news/ekonomi`}>Ekonomi</Link></li>
-                                        <li><Link to={`/news/politik`}>Politik</Link></li>
-                                        <li><Link to={`/news/hiburan`}>Hiburan</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("sepakbola")}><Link to={`/news/sepakbola`}>Sepakbola</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("ekonomi")}><Link to={`/news/ekonomi`}>Ekonomi</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("politik")}><Link to={`/news/politik`}>Politik</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("hiburan")}><Link to={`/news/hiburan`}>Hiburan</Link></li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="col-md-3">
-                                {/* <Search {...this.props} /> */}
-                                {/* <Search/> */}
                                 <form className="form-inline active-cyan-4">
                                     <input className="form-control form-control-sm w-75" type="text" placeholder="Search"
-                                        aria-label="Search" onChange={(e) => this.props.searchNews(e.target.value)}/>
+                                        aria-label="Search" onChange={this.props.doSearch}/>
                                         <button type="submit" class="searchButton">
                                             <i class="fa fa-search"></i>
                                         </button>
@@ -80,7 +72,7 @@ class Header extends Component{
                             <div className="col-md-2 header-kiri">
                                 <div className="header-logo">
                                     <Link to="/news">
-                                        <img src={require('../assets/img/logo192.png')} alt=""/>
+                                        <img src={require('../assets/img/logo192.png')} onClick={(e) => this.props.doCategory("academy")} alt=""/>
                                     </Link>
                                 </div>
                                 <div href="index.html" className="header-logo-text">
@@ -90,18 +82,14 @@ class Header extends Component{
                             <div className="col-md-5">
                                 <div className="header-navbar">
                                     <ul className="header-navbar-list list-unstyled">
-                                        {/* <li onClick={
-                                            this.handleRouterNav("sepakbola")
-                                        }><Link to={`/news/sepakbola`}>Sepakbola</Link></li> */}
-                                        <li><Link to={`/news/sepakbola`}>Sepakbola</Link></li>
-                                        <li><Link to={`/news/ekonomi`}>Ekonomi</Link></li>
-                                        <li><Link to={`/news/politik`}>Politik</Link></li>
-                                        <li><Link to={`/news/hiburan`}>Hiburan</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("sepakbola")}><Link to={`/news/sepakbola`}>Sepakbola</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("ekonomi")}><Link to={`/news/ekonomi`}>Ekonomi</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("politik")}><Link to={`/news/politik`}>Politik</Link></li>
+                                        <li onClick={(e) => this.props.doCategory("hiburan")}><Link to={`/news/hiburan`}>Hiburan</Link></li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="col-md-3">
-                                {/* <Search {...this.props} fungsiSearch/> */}
                                 <form className="form-inline active-cyan-4">
                                     <input className="form-control form-control-sm w-75" type="text" placeholder="Search"
                                         aria-label="Search" onChange={this.props.doSearch}/>
