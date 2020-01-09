@@ -26,7 +26,7 @@ class Login extends Component{
         store.setState({password: data.password});
         const self = this;
         axios
-        .post("https://alta-challenge4.free.beeceptor.com/login", data)
+        .post("https://challenge-react.free.beeceptor.com/login", data)
         .then(function (response) {
             if (response.data.api_key!=="") {
                 // localStorage.setItem("api_key", response.data.api_key);
@@ -39,6 +39,7 @@ class Login extends Component{
                 store.setState({full_name: response.data.full_name});
                 store.setState({email: response.data.email});
             }
+            console.log("ini dari login", this.props.is_login)
             self.props.history.push("/profile");
         })
         .catch(function (error) {

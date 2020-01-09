@@ -15,7 +15,8 @@ class Header extends Component{
         this.props.history.push("/login");
     };
     render(){
-        const is_login = JSON.parse(localStorage.getItem("is_login"));
+        const is_login = this.props.is_login;
+        console.log("ini dari header", this.props.is_login)
         if (is_login!==true){
             return (
                 <header>
