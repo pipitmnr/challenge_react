@@ -3,14 +3,17 @@ import '../assets/css/bootstrap.min.css';
 import '../assets/css/main.css';
 import { Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions, store } from "../store";
 
 const Profile = props => {
-    const is_login = JSON.parse(localStorage.getItem("is_login"));
-    const email = localStorage.getItem("email");
-    const full_name = localStorage.getItem("full_name");
-    const api_key = localStorage.getItem("api_key");
+    const is_login = this.props.is_login;
+    const email = this.props.email;
+    const full_name = this.props.full_name;
+    const api_key = this.props.api_key;
 
-    if (is_login === null) {
+    if (is_login !== true) {
         return <Redirect to={{ pathname: "/login" }} />;
     }
     else{
@@ -40,4 +43,7 @@ const Profile = props => {
         );
     }
 }
-export default Profile;
+export default connect(
+    "username, password, isLoading, api_key, is_login, full_name, email",
+    actions
+)(withRouter(Profile));
