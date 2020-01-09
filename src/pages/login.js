@@ -17,6 +17,7 @@ class Login extends Component{
     };
 
     postLogin = () => {
+        
         const { username, password } = this.props;
         const data = {
             username: username,
@@ -39,7 +40,6 @@ class Login extends Component{
                 store.setState({full_name: response.data.full_name});
                 store.setState({email: response.data.email});
             }
-            console.log("ini dari login", this.props.is_login)
             self.props.history.push("/profile");
         })
         .catch(function (error) {
@@ -47,7 +47,7 @@ class Login extends Component{
         });
     };
     render(){
-        console.warn(this.props)
+        console.warn(this.props, "ini dari login juga tp yg dibawah")
         return (
             <div>
                 <div className="container">

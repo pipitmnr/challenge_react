@@ -69,6 +69,7 @@ class Header extends Component{
             );
         }
         else{
+            console.warn("ini dah masuk is_login=true", is_login)
             return (
                 <header>
                     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
