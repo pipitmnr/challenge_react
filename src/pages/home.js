@@ -45,6 +45,7 @@ class Home extends Component{
         this.axiosTop();
     };
     render(){
+        console.warn("INI DARI HOME", this.props)
         if(this.props.is_login === true) {
             return (
                 <div>
