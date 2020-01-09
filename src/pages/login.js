@@ -29,10 +29,10 @@ class Login extends Component{
         .post("https://alta-challenge4.free.beeceptor.com/login", data)
         .then(function (response) {
             if (response.data.api_key!=="") {
-                localStorage.setItem("api_key", response.data.api_key);
-                localStorage.setItem("is_login", true);
-                localStorage.setItem("full_name", response.data.full_name);
-                localStorage.setItem("email", response.data.email);
+                // localStorage.setItem("api_key", response.data.api_key);
+                // localStorage.setItem("is_login", true);
+                // localStorage.setItem("full_name", response.data.full_name);
+                // localStorage.setItem("email", response.data.email);
 
                 store.setState({is_login: true});
                 store.setState({api_key: response.data.api_key});

@@ -51,6 +51,8 @@ class Home extends Component{
                     <Header {...this.props} doSearch={event => this.props.handleInputChange(event)} doCategory={e => this.props.categoryNews(e)}
                         placeholder="ketik sesuatu"/>
                     <div className="container">
+                        <div className="margin-atas-lagi">
+                        </div>
                         <div className="margin-atas">
                             <div className="row">
                                 <div className="col-md-1">

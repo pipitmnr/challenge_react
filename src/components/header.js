@@ -4,12 +4,16 @@ import '../assets/css/main.css';
 import Search from './search';
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions, store } from "../store";
 
 class Header extends Component{
-    // postSignout = () => {
-    //     localStorage.removeItem("is_login");
-    //     this.props.history.push("/login");
-    //   };
+    postSignout = () => {
+        // localStorage.removeItem("is_login");
+        store.setState({is_login: false});
+        this.props.history.push("/login");
+    };
     render(){
         const is_login = JSON.parse(localStorage.getItem("is_login"));
         if (is_login!==true){
@@ -104,6 +108,9 @@ class Header extends Component{
                                         <li>
                                             <Link to="/profile" >Profile</Link>
                                         </li>
+                                        <li onClick={() => this.postSignout()}>
+                                            <Link to="/login" >Keluar</Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -119,4 +126,8 @@ Search.propTypes = {
     title: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired
 };
-export default Header;
+// export default Header;
+export default connect(
+    "username, password, isLoading, api_key, is_login, full_name, email",
+    actions
+)(withRouter(Header));

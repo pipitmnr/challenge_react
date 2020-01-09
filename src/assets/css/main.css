@@ -46,6 +46,9 @@ header{
 .margin-atas{
     padding-top: 120px;
 }
+.margin-atas-lagi{
+    padding-top: 80px;
+}
 /* .top-article{
     border-right: 1px solid #ececec;
     border-left: 1px solid #ececec;
@@ -91,7 +94,7 @@ header{
     border: 1px solid #ececec;
 }
 .list-article-img img{
-    width: 635px;
+    width: 100%;
     height: 300px;
 }
 .list-article-title{
